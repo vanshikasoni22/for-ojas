@@ -23,7 +23,7 @@ const BirthdayPage = forwardRef(function BirthdayPage(props, ref) {
         <Heart className="w-6 h-6" color="#fff" />
       </div>
       <p className="font-hand text-white/90 text-lg sm:text-xl -mt-2 text-center px-4">
-        Pune ✈️ Patna, but here we are anyway
+        Pune ✈️ Mumbai, but here we are anyway
       </p>
 
       <Polaroid src={photos.birthday1} caption={captions.birthday1} rotate={-3} size="md" />
@@ -33,7 +33,7 @@ const BirthdayPage = forwardRef(function BirthdayPage(props, ref) {
 
 I've watched you do it more than once, and every time it low-key breaks my heart a little.
 
-This year you're in Patna and I'm in Pune, and for the first time in a while I can't just show up at your door with cake and chaos. I hate that. I genuinely wish I could be there.
+This year you're in Mumbai and I'm in Pune, and for the first time in a while I can't just show up at your door with cake and chaos. I hate that. I genuinely wish I could be there.
 
 But wherever you are, I need you to know: I'm thinking about you today. Loudly. From far away.`}
       </NoteCard>

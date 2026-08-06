@@ -38,7 +38,7 @@ const FinalLetterPage = forwardRef(function FinalLetterPage(props, ref) {
             people better. You did that. Not on purpose, probably. But you did.
           </p>
           <p>
-            I know today isn't shaping up exactly how either of us pictured it — you in Patna, me in Pune, no cake
+            I know today isn't shaping up exactly how either of us pictured it — you in Mumbai, me in Pune, no cake
             I can hand you in person, no showing up uninvited like I usually do. But distance doesn't get to
             decide how much this day matters, or how much you matter. So consider this my way of showing up
             anyway: scrappy, a little dramatic, entirely too many stickers, but all of it real.

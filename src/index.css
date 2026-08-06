@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Permanent+Marker&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Shadows+Into+Light&display=swap');
+@import "tailwindcss";
+
+:root {
+  --mango: #ffb703;
+  --mango-deep: #fb8500;
+  --watermelon: #ff5d8f;
+  --watermelon-soft: #ffb4c6;
+  --citrus: #ff7b3d;
+  --berry: #7b2cbf;
+  --berry-soft: #c77dff;
+  --leaf: #588157;
+  --leaf-bright: #90c953;
+  --cream: #fdf3e1;
+  --cream-deep: #f5e6c8;
+  --paper: #fbf0dc;
+  --ink: #3a2415;
+  --ink-soft: #6b4a2f;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  overscroll-behavior: none;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #120a05;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-marker {
+  font-family: 'Permanent Marker', cursive;
+}
+
+.font-hand {
+  font-family: 'Caveat', cursive;
+}
+
+.font-hand-light {
+  font-family: 'Shadows Into Light', cursive;
+}
+
+::selection {
+  background: var(--watermelon);
+  color: white;
+}
+
+/* Torn paper edge using clip-path zigzag */
+.torn-top {
+  clip-path: polygon(
+    0% 6px, 3% 0, 6% 5px, 9% 1px, 12% 6px, 15% 0, 18% 4px, 21% 0, 24% 6px,
+    27% 1px, 30% 5px, 33% 0, 36% 6px, 39% 1px, 42% 5px, 45% 0, 48% 6px,
+    51% 1px, 54% 5px, 57% 0, 60% 6px, 63% 1px, 66% 5px, 69% 0, 72% 6px,
+    75% 1px, 78% 5px, 81% 0, 84% 6px, 87% 1px, 90% 5px, 93% 0, 96% 6px, 100% 0,
+    100% 100%, 0% 100%
+  );
+}
+
+.paper-texture {
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(255,255,255,0.35) 0%, transparent 45%),
+    radial-gradient(circle at 85% 80%, rgba(255,255,255,0.25) 0%, transparent 40%),
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 3px);
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.2);
+  border-radius: 4px;
+}
+
+@keyframes floaty {
+  0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); }
+  50% { transform: translateY(-10px) rotate(var(--r, 0deg)); }
+}
+.animate-floaty {
+  animation: floaty 4.5s ease-in-out infinite;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spin-slow 18s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer-text {
+  background: linear-gradient(90deg, var(--mango) 0%, var(--watermelon) 25%, var(--berry-soft) 50%, var(--leaf-bright) 75%, var(--mango) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 6s linear infinite;
+}
+
+/* Confetti piece */
+.confetti-piece {
+  position: absolute;
+  will-change: transform;
+}
+
+/* Sticker rotate wobble on hover */
+.sticker:hover {
+  transform: scale(1.08) rotate(-4deg);
+}
+.sticker {
+  transition: transform 0.25s ease;
+}
+
+/* hide default StPageFlip shadow overlay tweaks */
+.stf__parent {
+  touch-action: pan-y;
+}
+.stf__wrapper {
+  margin: 0 auto;
+}
+
+/* "safe center": centers when content fits, falls back to top-aligned
+   instead of clipping when content overflows a scrollable flex container.
+   Tailwind has no built-in utility for justify-content: safe center. */
+.justify-safe-center {
+  justify-content: safe center;
+}
+@supports not (justify-content: safe center) {
+  .justify-safe-center {
+    justify-content: flex-start;
+  }
+}

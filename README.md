@@ -13,14 +13,18 @@ npm run dev
 
 Then open the printed `localhost` URL. Works on desktop and mobile browsers.
 
-## Adding real photos
+## Swapping photos
 
-Every polaroid on every page is a placeholder until you swap it in. All of it is
-controlled from one file: **[`src/photos.js`](src/photos.js)**.
+Every polaroid pulls from one file: **[`src/photos.js`](src/photos.js)**. Real
+photos are already wired in for every slot except `finalLetter1` (left as a
+placeholder on purpose — that page is mostly text).
 
-1. Drop your image files into `src/assets/photos/` (already gitignored-friendly —
-   just regular files, e.g. `arham-day.jpg`).
-2. In `src/photos.js`, import the image and assign it to its slot:
+To swap any photo for a different one:
+
+1. Drop the image file into `src/assets/photos/` (large phone screenshots should
+   be resized/compressed first, e.g. `sips -Z 1600 -s format jpeg -s formatOptions 78 in.png --out out.jpg`
+   on macOS, so the site stays fast to load).
+2. In `src/photos.js`, import it and assign it to the slot you want to change:
    ```js
    import arhamDay from './assets/photos/arham-day.jpg';
 
@@ -32,8 +36,8 @@ controlled from one file: **[`src/photos.js`](src/photos.js)**.
    ```
 3. Save — Vite hot-reloads instantly, no other code needs to change.
 
-Captions under each polaroid live in the `captions` export in the same file if you
-want to reword any of them.
+Setting a slot back to `null` renders a dashed-border placeholder instead.
+Captions under each polaroid live in the `captions` export in the same file.
 
 ## Editing the writing
 
